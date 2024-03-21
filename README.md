@@ -1,7 +1,7 @@
 # **Pytest**
-pytest requires: Python 3.8+ or PyPy3.
+Pytest is a powerful and flexible testing framework that makes it easy to write, organize, and run tests for Python projects of any size. Its simplicity and extensibility have made it a popular choice for testing within the Python community pytest requires: Python 3.8+ or PyPy3.
 
-Run the following command in your command line:
+To install run the below command in command line:
 - ``` pip install -U pytest ```
 
 Check that you installed the correct version:
