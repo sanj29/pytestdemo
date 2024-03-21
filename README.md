@@ -1,13 +1,33 @@
+# **Pytest**
+pytest requires: Python 3.8+ or PyPy3.
 
+Run the following command in your command line:
+- ``` pip install -U pytest ```
 
-**Test Grouping**
+Check that you installed the correct version:
+```
+  $ pytest --version
+    pytest 8.1.1
+  ```
+  
+# **Test Grouping**
 Using marker we can group our test like 
   @pytest.mark.smoke
   @pytest.mark.skip
   @pytest.mark.xfail
-**Execution**: pytest -m  somke "it will run a test cases matching given mark" tag test using @pytest.mark.smoke/sanity/regression
   
-**parametrization** 
+**Execution**: 
+```pytest -m  somke "it will run a test cases matching given mark" tag test using @pytest.mark.smoke/sanity/regression```
+  
+# **Parametrization** 
+
+- pytest enables test parametrization at several levels:
+-pytest.fixture() allows one to parametrize fixture functions.
+- @pytest.mark.parametrize allows one to define multiple sets of arguments and fixtures at the test function or class.
+- pytest_generate_tests allows one to define custom parametrization schemes or extensions.
+
+
+``` 
 #using pytest.fixture(params["a","b"]this will case multiple invocation of the fixture functions.
 #you have to use request object as parameter in your method, and use this parametrize method name need to paas to your test case.
 @pytest.fixture(params=["a", "b"])
@@ -19,8 +39,6 @@ def test_param(demo_fixture):
     print("printing values")
 
 import pytest
-
-
 #using pytest.mark.parametrize we can pass multiple values to our test cases
 #used tuple to provide values to your test, based number of parameter test execution will occur.
 @pytest.mark.parametrize("a,b,final", [(2, 6, 8), (5, 8, 15), (10, 5, 15)])
@@ -55,3 +73,5 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="session", autouse=True)
 def browser(request):
     return request.config.getoption("--browser")
+
+```
