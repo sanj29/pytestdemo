@@ -25,6 +25,13 @@ def test_calculation_case():
 ```
 - To run abive code, go to your file location via cli and execute below command
 ``` pytest -vs ```
+*** Running test ***
+  - Torun all the test cases preent in the folder
+  - ``` pytest ```
+- To run test will extra information
+  ``` pytest -vs ```
+- To run based on some key-words use -k option
+  ```pytest -vsk test_add*```
 
 # **Test Grouping**
 
